@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with BlackHole.  If not, see <http://www.gnu.org/licenses/>.
  * 
- * Copyright (c) 2021-2022, Ankit Sangwan
+ * Copyright (c) 2021-2023, Ankit Sangwan
  */
 
 import 'dart:async';
@@ -299,7 +299,7 @@ class _PlayScreenState extends State<PlayScreen> {
                           final Map details =
                               MediaItemConverter.mediaItemToMap(mediaItem);
                           details['duration'] =
-                              '${int.parse(details["duration"].toString()) ~/ 60}:${int.parse(details["duration"].toString()) % 60}';
+                              '${(int.parse(details["duration"].toString()) ~/ 60).toString().padLeft(2, "0")}:${(int.parse(details["duration"].toString()) % 60).toString().padLeft(2, "0")}';
                           // style: Theme.of(context).textTheme.caption,
                           if (mediaItem.extras?['size'] != null) {
                             details.addEntries([
@@ -1814,7 +1814,7 @@ class _ArtWorkWidgetState extends State<ArtWorkWidget> {
                                           widget.mediaItem,
                                         );
                                         details['duration'] =
-                                            '${int.parse(details["duration"].toString()) ~/ 60}:${int.parse(details["duration"].toString()) % 60}';
+                                            '${(int.parse(details["duration"].toString()) ~/ 60).toString().padLeft(2, "0")}:${(int.parse(details["duration"].toString()) % 60).toString().padLeft(2, "0")}';
                                         // style: Theme.of(context).textTheme.caption,
                                         if (widget.mediaItem.extras?['size'] !=
                                             null) {

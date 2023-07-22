@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with BlackHole.  If not, see <http://www.gnu.org/licenses/>.
  * 
- * Copyright (c) 2021-2022, Ankit Sangwan
+ * Copyright (c) 2021-2023, Ankit Sangwan
  */
 
 import 'dart:io';
@@ -59,6 +59,8 @@ Future<void> createBackup(
   if (savePath.trim() != '') {
     try {
       final saveDir = Directory(savePath);
+      final dirExists = await saveDir.exists();
+      if (!dirExists) saveDir.create(recursive: true);
       final List<File> files = [];
       final List boxNames = [];
 
